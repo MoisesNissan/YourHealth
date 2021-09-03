@@ -1,0 +1,7 @@
+<div class="container mt-5">
+  <%= simple_form_for([@doctor, @appointment]) do |f| %>
+    <%= f.input :description %>
+    <%= f.input :date, as: :date, html5: true %>
+    <%= f.submit %>
+  <% end %>
+</div>

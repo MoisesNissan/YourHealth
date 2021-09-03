@@ -1,0 +1,8 @@
+<div class="container mt-5">
+  <%= simple_form_for([@user, @medical_record]) do |f| %>
+    <%= f.input :lab_results %>
+    <%= f.input :medications %>
+    <%= f.input :description %>
+    <%= f.submit %>
+  <% end %>
+</div>

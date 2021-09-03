@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <h1> Doctors </h1>
+  <ul class="mt-5">
+    <% @doctors.each do |doctor| %>
+      <li><%= doctor.first_name %></li>
+      <li class="list-unstyled mb-3"><%= link_to "See Doctors Profile", doctor_path(doctor)%></li>
+    <% end %>
+  </ul>
+</div>

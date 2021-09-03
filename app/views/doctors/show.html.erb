@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h1> Doctors Profile </h1>
+  <div class="mt-5">
+  <p><strong>Name:</strong> <%=@doctor.first_name%> <%=@doctor.last_name%></p>
+  <p><strong>Gender:</strong> <%=@doctor.gender %></p>
+  <p><strong>Age:</strong> <%=@doctor.age %></p>
+  <p><strong>Specialty:</strong> <%=@doctor.specialty %></p>
+  <div class="mt-5">
+  </div>
+  <% if current_user %>
+    <%= link_to "Create Appointment", new_doctor_appointment_path(@doctor) %>
+  <% else %>
+    <%= link_to "Upcoming Appointments", appointments_path %>
+  <% end %>
+  </div>
+</div>

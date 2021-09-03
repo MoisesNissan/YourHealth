@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <h1>Appointments</h1>
+  <div class="mt-5">
+    <%  @appointments.each do |appointment| %>
+      <ul class="list-unstyled">
+        <li><strong>Doctor:</strong> <%= appointment.doctor.first_name %> <%= appointment.doctor.last_name %></li>
+        <li><strong>Description:</strong> <%= appointment.description %></li>
+        <li><strong>Date:</strong> <%= appointment.date %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
