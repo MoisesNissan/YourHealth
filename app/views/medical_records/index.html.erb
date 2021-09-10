@@ -1,14 +1,21 @@
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <h1>Medical Record</h1>
-  <div class="mt-5">
-    <%  @medical_records.each do |medical_record| %>
-      <ul class="list-unstyled">
-        <li><strong>Lab Results:</strong> <%= medical_record.lab_results %></li>
-        <li><strong>Medications:</strong> <%= medical_record.medications %></li>
-        <li><strong>Description:</strong> <%= medical_record.description %></li>
-      </ul>
-    <% end %>
+
+  <%  @medical_records.each do |medical_record| %>
+  <div class="row">
+    <div class="card mt-5 col-sm" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Doctor:</strong> <%= medical_record.doctor.first_name %> <%= medical_record.doctor.last_name %></h5>
+        <hr>
+        <ul class="list-unstyled">
+            <li><strong>Lab Results:</strong> <%= medical_record.lab_results %></li>
+            <li><strong>Medications:</strong> <%= medical_record.medications %></li>
+            <li><strong>Description:</strong> <%= medical_record.description %></li>
+            <li><strong>Record Date:</strong> <%= medical_record.created_at %></li>
+          </ul>
+      </div>
+    </div>
   </div>
+  <% end %>
 </div>
-<strong></strong>

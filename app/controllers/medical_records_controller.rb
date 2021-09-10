@@ -1,7 +1,7 @@
 class MedicalRecordsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @medical_records = @user.medical_records
+    @medical_records = @user.medical_records.sort_by { :created_at }.reverse
   end
 
   def show

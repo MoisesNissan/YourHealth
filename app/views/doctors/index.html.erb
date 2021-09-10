@@ -1,9 +1,26 @@
 <div class="container mt-5">
   <h1> Doctors </h1>
-  <ul class="mt-5">
-    <% @doctors.each do |doctor| %>
-      <li><%= doctor.first_name %></li>
-      <li class="list-unstyled mb-3"><%= link_to "See Doctors Profile", doctor_path(doctor)%></li>
+  <div class="mt-5 mb-5 search-bar">
+    <%= form_tag doctors_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        id: "home-search",
+        placeholder: "Search by name or specialty" %>
+        <div class="mt-3">
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
     <% end %>
-  </ul>
+  </div>
+  <div class="row custom-row">
+  <% @doctors.each do |doctor| %>
+    <a href="<%= doctor_path(doctor) %>" class="card-product mr-3 mb-3">
+      <img id="image" src="<%= doctor.image_url %>"/>
+      <div class="card-product-infos custom-margin">
+        <h2><%= doctor.first_name %> <%= doctor.last_name %></h2>
+        <p><%= doctor.specialty %></p>
+      </div>
+    </a>
+  <% end %>
+  </div>
 </div>

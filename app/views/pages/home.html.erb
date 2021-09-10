@@ -1,4 +1,39 @@
-<div class="container mt-5">
-  <h1>My Health</h1>
-  <p></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.theladders.com/wp-content/uploads/doctor-patient-happy-190813.jpg);">
+  <div class="container mb-3">
+    <h1>My Health </h1>
+    <p>The forefront of your healthcare.</p>
+    <% if current_doctor %>
+      <%= link_to "Patients", users_path, class: "btn btn-primary" %>
+    <% elsif current_user %>
+      <%= link_to "Doctors", doctors_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container mt-3 p-4 mb-3">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="cards">
+        <i class="far fa-calendar-check icon"></i>
+        <h3>Create An Appointment</h3>
+        Easily contact your doctor for a new appointment.
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="cards">
+        <i class="far fa-calendar-check icon"></i>
+        <h3>Check Your Results</h3>
+        Results are stored in your profile page
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="cards">
+        <i class="fas fa-comments icon"></i>
+          <h3>Doctor Comunication</h3>
+              Each doctor can check the consults a patient has had.
+      </div>
+    </div>
+  </div>
 </div>

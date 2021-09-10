@@ -1,16 +1,44 @@
-<div class="container mt-5">
-  <h1> Doctors Profile </h1>
-  <div class="mt-5">
-  <p><strong>Name:</strong> <%=@doctor.first_name%> <%=@doctor.last_name%></p>
-  <p><strong>Gender:</strong> <%=@doctor.gender %></p>
-  <p><strong>Age:</strong> <%=@doctor.age %></p>
-  <p><strong>Specialty:</strong> <%=@doctor.specialty %></p>
-  <div class="mt-5">
+
+<div class="d-flex align-items-content-between container mt-5">
+  <div id="primary">
+    <img width="500" height="400" src="<%= @doctor.image_url %>"/>
   </div>
-  <% if current_user %>
-    <%= link_to "Create Appointment", new_doctor_appointment_path(@doctor) %>
-  <% else %>
-    <%= link_to "Upcoming Appointments", appointments_path %>
-  <% end %>
+
+  <div class="ml-5">
+    <header id="doctor-header">
+      <h1><%=@doctor.first_name%> <%=@doctor.last_name%></h1>
+      <small>
+        <p><em><%=@doctor.specialty %></em></p>
+      </small>
+    </header>
+
+    <div>
+      <p class="content"><%=@doctor.description%></p>
+    </div>
+
+    <div>
+      <i class="far fa-envelope p-1 color"></i> <%=@doctor.email %>
+    </div>
+
+    <div>
+      <i class="fas fa-phone p-1 color"></i> <%=@doctor.phone_number %>
+    </div>
+
+    <div class="p-1 m-0">
+      <p>Age: <%=@doctor.age %></p>
+    </div>
+
+
+
+    <% if current_user %>
+      <%= link_to "Create Appointment", new_doctor_appointment_path(@doctor), class: "btn btn-primary" %>
+    <% else %>
+      <% if current_doctor.id == @doctor.id %>
+        <%= link_to "Upcoming Appointments", appointments_path, class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
   </div>
+
+
+
 </div>

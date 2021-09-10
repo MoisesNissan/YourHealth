@@ -1,9 +1,14 @@
 class AppointmentsController < ApplicationController
   def index
     if current_user
-      @appointments = current_user.appointments
+      @appointments = current_user.appointments.sort_by.sort_by { :date }.reverse
     else
-      @appointments = current_doctor.appointments
+      if (params[:user])
+        @appointments = current_doctor.appointments
+        @appointments = @appointments.select {|app| app.user_id == params[:user].to_i}
+      else
+        @appointments = current_doctor.appointments
+      end
     end
   end
 
