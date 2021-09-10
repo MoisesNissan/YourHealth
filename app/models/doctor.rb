@@ -6,4 +6,10 @@ class Doctor < ApplicationRecord
 
   has_many :medical_records, dependent: :destroy
   has_many :appointments, dependent: :destroy
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :first_name, :last_name, :specialty ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

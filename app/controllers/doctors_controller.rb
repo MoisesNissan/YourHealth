@@ -1,6 +1,10 @@
 class DoctorsController < ApplicationController
   def index
-    @doctors = Doctor.all
+    if params[:query].present?
+      @doctors = Doctor.global_search(params[:query])
+    else
+      @doctors = Doctor.all
+    end
   end
 
   def show
