@@ -34,8 +34,11 @@
             <% if current_doctor %>
               <%= link_to "All Patients", users_path, class: "dropdown-item" %>
               <%= link_to "All Doctors", doctors_path, class: "dropdown-item" %>
+              <%= link_to "Appointments", appointments_path(current_doctor), class: "dropdown-item" %>
               <% else %>
               <%= link_to "All Doctors", doctors_path, class: "dropdown-item" %>
+              <%= link_to "Appointments", appointments_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Medical Record",  user_medical_records_path(current_user), class: "dropdown-item" %>
             <% end %>
             <%# <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

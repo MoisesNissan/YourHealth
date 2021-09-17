@@ -4,6 +4,7 @@ class Doctor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_many :medical_records, dependent: :destroy
   has_many :appointments, dependent: :destroy
   include PgSearch::Model
